@@ -17,6 +17,7 @@ class Window(QWidget):
     def draw_start(self):
         self.x = randint(0, SCREEN_SIZE[0])
         self.y = randint(0, SCREEN_SIZE[1])
+        self.d = randint(10, 100)
         self.drawing = True
 
     def paintEvent(self, event):
@@ -24,7 +25,7 @@ class Window(QWidget):
             qp = QPainter()
             qp.begin(self)
             qp.setBrush(QColor(255, 211, 0))
-            qp.drawEllipse(self.x, self.y, 50, 50)
+            qp.drawEllipse(self.x, self.y, self.d, self.d)
             qp.end()
             self.update()
 
